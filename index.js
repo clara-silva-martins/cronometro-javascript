@@ -3,8 +3,18 @@ var minutos= 0
 var horas= 0
 var intervalo
 
+
+function doisDigitos(digito){
+    if(digito <10){
+        return ('0'+digito)
+    }else{
+        return(digito)
+    }
+}
+
 function start(){
-    intervalo= setInterval(relogioContador, 1)
+    relogioContador()
+    intervalo= setInterval(relogioContador, 1000)
     
 }
 
@@ -33,5 +43,5 @@ function relogioContador(){
         minutos=0
         segundos=0
     }
-    document.getElementById('relogio').innerText = horas + ':' +minutos + ':' + segundos
+    document.getElementById('relogio').innerText = doisDigitos(horas) + ':' + doisDigitos(minutos)+ ':' + doisDigitos(segundos)
 }
